@@ -1,11 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Cities 
-    </ion-title> Some kind of navigation here
+      Locations 
+    </ion-title> 
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h1>Cities</h1><p>This would eventually be the landing page instead of the current map. There would be images or list of cities (to come later - for now only Victoria?)</p>
+  <!-- note - look here for better styling https://forum.ionicframework.com/t/space-issue-between-ion-items-within-a-grid/59081/5 -->
+  <ion-list>
+    <button *ngFor="let city of cities;" ion-item detail-none (click)="buttonClick(city.id)"><img src="{{city.imgPath}}">
+      <div class="button-heading">{{city.imgCaption}}</div>
+    </button>
+    <!-- 
+    <button *ngFor="let city of cities;" ion-item detail-none (click)="buttonClick(0)"><img src="../assets/locations/saskatoon/img/saskatoon.jpg">
+      <div class="button-heading">Saskatoon</div>
+    </button>
+    <button ion-item detail-none (click)="buttonClick(0)"><img src="../assets/locations/victoria/img/victoria.jpg">
+      <div class="button-heading">Victoria</div>
+    </button>
+    -->
+  </ion-list>
 </ion-content>

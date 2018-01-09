@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
+import { DataProvider } from './../../providers/data/data';
 
 export interface Slide {
   title: string;
@@ -16,8 +17,10 @@ export class TutorialPage {
   slides: Slide[];
   showSkip = true;
   dir: string = 'ltr';
-
-  constructor(public navCtrl: NavController, public menu: MenuController,  public platform: Platform) {
+  json: any;
+  cities: Array<any> = [];
+  constructor(public navCtrl: NavController, public menu: MenuController,  public platform: Platform, public dataProvider:DataProvider) {
+    console.log("in constructor");
     this.dir = platform.dir();
     this.slides = [
       {
@@ -38,11 +41,19 @@ export class TutorialPage {
   }
 
   startApp() {
-    console.log("in startapp");
-    this.navCtrl.setRoot('MapPage', {}, {
-      animate: true,
-      direction: 'forward'
-    });
+    if(this.cities.length>1) {
+      this.navCtrl.setRoot('SpotGroupPage', {}, {
+        animate: true,
+        direction: 'forward'
+      });
+    }
+    else {
+      this.navCtrl.setRoot('MapPage', {}, {
+        animate: true,
+        direction: 'forward'
+      });
+    }
+    
   }
 
   onSlideChangeStart(slider) {
@@ -52,6 +63,18 @@ export class TutorialPage {
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
+    console.log("in startapp");
+    this.dataProvider.load().then(data => {
+      console.log("loading data");
+      this.json = data;
+      this.dataProvider.setData(this.json);
+      for (var i of this.json.location) {
+        let tempObj = {"name":i.name,"id":i.Id,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path}
+        this.cities.push(tempObj);
+       }
+      this.dataProvider.setCities(this.cities);
+      console.log("cities length="+this.cities.length+" 1st city="+this.cities[0]+" 2nd city="+this.cities[1]);
+    });
   }
 
   ionViewWillLeave() {

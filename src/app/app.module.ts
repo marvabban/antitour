@@ -1,12 +1,15 @@
 import { MapPageModule } from './../pages/map/map.module';
+import { SpotGroupPageModule } from './../pages/spotgroup/spotgroup.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { MapPage } from '../pages/map/map'; /** change this to SpotGroupPage if more than one spot (city) */
+import { SpotGroupPage } from '../pages/spotgroup/spotgroup'; /** change this to map if only one spot (city) */
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DataProvider } from '../providers/data/data';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -15,18 +18,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     MapPageModule,
+    SpotGroupPageModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MapPage /** change this to SpotGroupPage if more than one spot (city) */
+    SpotGroupPage /** change this to MapPage if only one spot (city) */
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}

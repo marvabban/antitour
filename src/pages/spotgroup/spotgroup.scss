@@ -1,3 +1,8 @@
 page-spotgroup {
-
+    div.item-inner { height:100px;  }
+    .label-md { margin-right: 0px; }
+    .item-md.item-block .item-inner { padding-right:0px; }
+    button { padding:0 !important; height:100px; } 
+    button img { width:100%; height:auto; padding:0; margin:0; }
+    button div.button-heading { position:absolute; left:0px; top:0px; width:100%; background-color:rgba(0, 0,0, .4); color:#fff; padding:5px 8px; }
 }

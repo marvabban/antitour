@@ -20,7 +20,8 @@ export class TutorialPage {
   json: any;
   cities: Array<any> = [];
   constructor(public navCtrl: NavController, public menu: MenuController,  public platform: Platform, public dataProvider:DataProvider) {
-    console.log("in constructor");
+    /* get / set data */
+    
     this.dir = platform.dir();
     this.slides = [
       {
@@ -64,17 +65,7 @@ export class TutorialPage {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
     console.log("in startapp");
-    this.dataProvider.load().then(data => {
-      console.log("loading data");
-      this.json = data;
-      this.dataProvider.setData(this.json);
-      for (var i of this.json.location) {
-        let tempObj = {"name":i.name,"id":i.Id,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path}
-        this.cities.push(tempObj);
-       }
-      this.dataProvider.setCities(this.cities);
-      console.log("cities length="+this.cities.length+" 1st city="+this.cities[0]+" 2nd city="+this.cities[1]);
-    });
+    
   }
 
   ionViewWillLeave() {

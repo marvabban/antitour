@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage,  NavController} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { DataProvider } from './../../providers/data/data';
 
 declare var google;
 
@@ -13,9 +14,9 @@ export class MapPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
- 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) {
- 
+  currentCity: any = {};
+  constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider) {
+    this.currentCity = dataProvider.getCurrentCity();
   }
  
   ionViewDidLoad(){
@@ -24,7 +25,7 @@ export class MapPage {
  
   loadMap(){
  
-    let latLng = new google.maps.LatLng(52.1286430, -106.6351939);
+    let latLng = new google.maps.LatLng(this.currentCity.lat, this.currentCity.lon);
  
     let mapOptions = {
       center: latLng,
@@ -33,21 +34,20 @@ export class MapPage {
     }
  
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    this.addMarker();
+    //this.addMarkers();
   }
 
-  addMarker(){
-    
-     let marker = new google.maps.Marker({
-       map: this.map,
-       animation: google.maps.Animation.DROP,
-       position: this.map.getCenter()
-     });
-    
-     let content = "<h4>College Drive Dairy Queen</h4>";         
-    
-     this.addInfoWindow(marker, content);
-    
+  addMarkers(){
+    //for (let spot of this.currentCity.destination) {
+      //let spotLatLng = new google.maps.LatLng(spot.lat, spot.lon);
+      let marker = new google.maps.Marker({
+        map: this.map,
+        animation: google.maps.Animation.DROP,
+        position: {lat: this.currentCity.destination[0].lat, lng: this.currentCity.destination[0].lon}
+      });
+      let content = "<h4>"+this.currentCity.destination[0].title+"</h4>";         
+      this.addInfoWindow(marker, content);
+   // }
    }
 
    addInfoWindow(marker, content){
@@ -59,8 +59,5 @@ export class MapPage {
      google.maps.event.addListener(marker, 'click', () => {
        infoWindow.open(this.map, marker);
      });
-    
    }
-
-   
 }

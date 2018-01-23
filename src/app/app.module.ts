@@ -8,6 +8,7 @@ import { SpotGroupPage } from '../pages/spotgroup/spotgroup'; /** change this to
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
 
@@ -20,6 +21,7 @@ import { HttpModule } from '@angular/http';
     MapPageModule,
     SpotGroupPageModule,
     HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
     
   ],

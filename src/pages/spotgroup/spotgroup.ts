@@ -12,11 +12,7 @@ export class SpotGroupPage {
   cities: Array<any> = [];
 
   constructor(public navCtrl: NavController, public dataProvider:DataProvider) {
-    this.setCities();
-  }
-
-  setCities() {
-      this.cities = this.dataProvider.getCities();
+    this.cities = dataProvider.getCities();
   }
 
   buttonClick(id) {

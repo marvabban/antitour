@@ -12,7 +12,10 @@ export class SpotGroupPage {
   cities: Array<any> = [];
 
   constructor(public navCtrl: NavController, public dataProvider:DataProvider) {
-    this.cities = dataProvider.getCities();
+     
+    dataProvider.storage.get('cities').then((val) => {
+      this.cities = JSON.parse(val);
+    });;
   }
 
   buttonClick(id) {

@@ -61,6 +61,6 @@ export class DataProvider {
     return this.currentCity;
   }
   getCities() {
-    return this.storage.get('cities');
+     
   }
 }

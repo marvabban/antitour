@@ -12,13 +12,5 @@
     <button *ngFor="let city of cities;" ion-item detail-none (click)="buttonClick(city.id)"><img src="{{city.imgPath}}">
       <div class="button-heading">{{city.imgCaption}}</div>
     </button>
-    <!-- 
-    <button *ngFor="let city of cities;" ion-item detail-none (click)="buttonClick(0)"><img src="../assets/locations/saskatoon/img/saskatoon.jpg">
-      <div class="button-heading">Saskatoon</div>
-    </button>
-    <button ion-item detail-none (click)="buttonClick(0)"><img src="../assets/locations/victoria/img/victoria.jpg">
-      <div class="button-heading">Victoria</div>
-    </button>
-    -->
   </ion-list>
 </ion-content>

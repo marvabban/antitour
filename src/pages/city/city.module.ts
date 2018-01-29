@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SpotGroupPage } from './spotgroup';
+import { CityPage } from './city';
 
 @NgModule({
   declarations: [
-    SpotGroupPage
+    CityPage
   ],
   imports: [
-    IonicPageModule.forChild(SpotGroupPage)
+    IonicPageModule.forChild(CityPage)
   ],
   exports: [
-    SpotGroupPage
+    CityPage
   ]
 })
-export class SpotGroupPageModule { }
+export class CityPageModule { }

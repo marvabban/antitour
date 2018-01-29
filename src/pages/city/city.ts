@@ -4,25 +4,27 @@ import { DataProvider } from './../../providers/data/data';
 
 @IonicPage()
 @Component({
-  selector: 'page-spotgroup',
-  templateUrl: 'spotgroup.html'
+  selector: 'page-city',
+  templateUrl: 'city.html'
 })
-export class SpotGroupPage {
+export class CityPage {
   public appData:any;
   cities: Array<any> = [];
 
   constructor(public navCtrl: NavController, public dataProvider:DataProvider) {
      
-    dataProvider.storage.get('cities').then((val) => {
+    this.dataProvider.storage.get('cities').then((val) => {
       this.cities = JSON.parse(val);
-    });;
+      console.log("in dataprovider constructor");
+    });
   }
 
   buttonClick(id) {
+    console.log("in buttonClick");
     this.dataProvider.setCurrentCity(id);
     this.navCtrl.setRoot('MapPage', {}, {
       animate: true,
       direction: 'forward'
-    });
+    }); 
   }
 }

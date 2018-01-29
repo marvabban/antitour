@@ -1,16 +1,21 @@
 import { MapPageModule } from './../pages/map/map.module';
-import { SpotGroupPageModule } from './../pages/spotgroup/spotgroup.module';
+import { CityPageModule } from './../pages/city/city.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { SpotGroupPage } from '../pages/spotgroup/spotgroup'; /** change this to map if only one spot (city) */
+import { CityPage } from '../pages/city/city'; /** change this to map if only one spot (city) */
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
+import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
+
+export function myCustomAudioProviderFactory() {
+  return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
+}
 
 @NgModule({
   declarations: [
@@ -19,8 +24,9 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     MapPageModule,
-    SpotGroupPageModule,
+    CityPageModule,
     HttpModule,
+    IonicAudioModule.forRoot(defaultAudioProviderFactory),
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
     
@@ -28,7 +34,7 @@ import { HttpModule } from '@angular/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SpotGroupPage /** change this to MapPage if only one spot (city) */
+    CityPage /** change this to MapPage if only one spot (city) */
   ],
   providers: [
     StatusBar,
@@ -36,6 +42,7 @@ import { HttpModule } from '@angular/http';
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

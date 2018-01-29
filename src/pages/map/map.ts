@@ -16,17 +16,20 @@ export class MapPage {
   map: any;
   currentCity: any = {};
   constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider) {
-    this.currentCity = dataProvider.getCurrentCity();
+    dataProvider.storage.get('currentCity').then((val) => {
+      this.currentCity = JSON.parse(val);
+      this.loadMap();
+    });
   }
  
   ionViewDidLoad(){
-    this.loadMap();
+    //this.loadMap();
   }
  
   loadMap(){
  
     let latLng = new google.maps.LatLng(this.currentCity.lat, this.currentCity.lon);
- 
+    
     let mapOptions = {
       center: latLng,
       zoom: 13,
@@ -34,20 +37,21 @@ export class MapPage {
     }
  
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    //this.addMarkers();
+    this.addMarkers();
   }
 
   addMarkers(){
-    //for (let spot of this.currentCity.destination) {
-      //let spotLatLng = new google.maps.LatLng(spot.lat, spot.lon);
+    for (let spot of this.currentCity.destination) {
+      let spotLatLng = new google.maps.LatLng(spot.lat, spot.lon);
+      console.log("in add markers");
       let marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        position: {lat: this.currentCity.destination[0].lat, lng: this.currentCity.destination[0].lon}
+        position: spotLatLng
       });
-      let content = "<h4>"+this.currentCity.destination[0].title+"</h4>";         
+      let content = "<h4>"+spot.title+"</h4><button ion-button color='light'>Hear the story</button>";         
       this.addInfoWindow(marker, content);
-   // }
+      }
    }
 
    addInfoWindow(marker, content){

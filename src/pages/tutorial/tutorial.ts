@@ -17,10 +17,12 @@ export class TutorialPage {
   slides: Slide[];
   showSkip = true;
   dir: string = 'ltr';
-  json: any;
   cities: Array<any> = [];
   constructor(public navCtrl: NavController, public menu: MenuController,  public platform: Platform, public dataProvider:DataProvider) {
     /* get / set data */
+    this.dataProvider.storage.get('cities').then((val) => {
+      this.cities = JSON.parse(val);
+    });
     
     this.dir = platform.dir();
     this.slides = [
@@ -43,7 +45,7 @@ export class TutorialPage {
 
   startApp() {
     if(this.cities.length>1) {
-      this.navCtrl.setRoot('SpotGroupPage', {}, {
+      this.navCtrl.setRoot('CityPage', {}, {
         animate: true,
         direction: 'forward'
       });
@@ -64,8 +66,6 @@ export class TutorialPage {
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
-    console.log("in startapp");
-    
   }
 
   ionViewWillLeave() {

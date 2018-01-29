@@ -25,7 +25,7 @@ export class DataProvider {
       // keep data in local storage
       storage.set('localdata', JSON.stringify(this.data));
       for (var i of this.data.location) {
-        let tempObj = {"name":i.name,"id":i.Id,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path}
+        let tempObj = {"name":i.name,"id":i.id,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path}
         this.cities.push(tempObj);
        }
       storage.set('cities', JSON.stringify(this.cities));
@@ -41,26 +41,22 @@ export class DataProvider {
 
   setCurrentCity(id) {
     this.currentCityID = id;
+    console.log("in setCurrentCity id="+id);
     // set all city stuff
     for (var i of this.data.location) {
-      if(i.id=id) {
-        console.log("in setCurrentCit matched id");
-        this.currentCity = {"name":i.name,"id":i.Id,"lat":j.lat,"lon":j.lon,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path, "destination":[]};
+      console.log("passed in id was "+i+" id in loop is "+i.id+" ")
+      if(i.id==id) {
+        console.log("in setCurrentCity matched id");
+        this.currentCity = {"name":i.name,"id":i.Id,"lat":i.lat,"lon":i.lon,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path, "destination":[]};
         
         for(var j of i.destination) {
-          console.log("in destination");
-          this.currentCity.destination.push({"lat":j.lat,"lon":j.lon,"title":j.title,"audiopath":j.audiopath,"imgCaption":j.img[0].caption,"imgPath":j.img[0].path});
+          console.log("in destination"+i.id);
+          this.currentCity.destination.push({"lat":j.dlat,"lon":j.dlon,"title":j.dtitle,"audiopath":j.daudiopath,"imgCaption":j.dimg[0].dcaption,"imgPath":j.dimg[0].path});
         }
       }
+      console.log("Current city = "+JSON.stringify(this.currentCity));
       this.storage.set("currentCity",JSON.stringify(this.currentCity));
      }
      console.log("in setCurrentCity="+this.currentCity);
-  }
-  getCurrentCity() {
-    console.log("in getCurrentCity="+this.currentCity);
-    return this.currentCity;
-  }
-  getCities() {
-     
   }
 }

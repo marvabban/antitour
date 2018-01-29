@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { Nav } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 
 @Component({
@@ -31,7 +29,7 @@ export class MyApp {
   pages: any[] = [
     { title: 'Tutorial', component: 'TutorialPage' },
     { title: 'Map', component: 'MapPage' },
-    { title: 'Cities', component: 'SpotGroupPage' }
+    { title: 'Cities', component: 'CityPage' }
   ]
 
 

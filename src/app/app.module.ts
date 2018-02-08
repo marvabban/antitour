@@ -1,7 +1,7 @@
 import { MapPageModule } from './../pages/map/map.module';
 import { CityPageModule } from './../pages/city/city.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CityPage } from '../pages/city/city'; /** change this to map if only one spot (city) */
@@ -11,11 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
-import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
-
-export function myCustomAudioProviderFactory() {
-  return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
-}
+import { AudioProvider } from '../providers/audio/audio';
 
 @NgModule({
   declarations: [
@@ -26,10 +22,8 @@ export function myCustomAudioProviderFactory() {
     MapPageModule,
     CityPageModule,
     HttpModule,
-    IonicAudioModule.forRoot(defaultAudioProviderFactory),
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
-    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,8 +35,8 @@ export function myCustomAudioProviderFactory() {
     SplashScreen,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
-  ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    DataProvider,
+    AudioProvider
+  ]
 })
 export class AppModule {}

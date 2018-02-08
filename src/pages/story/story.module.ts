@@ -1,4 +1,4 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { StoryPage } from './story';
 
@@ -11,7 +11,6 @@ import { StoryPage } from './story';
   ],
   exports: [
     StoryPage
-  ],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  ]
 })
 export class StoryPageModule { }

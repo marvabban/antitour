@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage,  NavController} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage,  NavController, NavParams, Platform} from 'ionic-angular';
 import { DataProvider } from './../../providers/data/data';
-import { AudioProvider } from '../../providers/audio/audio';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import {ScreenOrientation} from "@ionic-native/screen-orientation";
 
 @IonicPage()
 @Component({
@@ -10,103 +10,61 @@ import { AudioProvider } from '../../providers/audio/audio';
   templateUrl: 'story.html'
 })
 export class StoryPage {
-  /**
-    * Define the initial volume setting for the application
-    */
-    public volume         : any     = 50;
-
-
-    /**
-     * Initial state for audio playback
-     */
-    public isPlaying      : boolean = false;
- 
- 
-    /**
-     * Audio data to be used by the application
-     * Change these to whatever YOUR audio tracks are!
-     */
-    public tracks         : any     = [
-                        {
-                            artist  : 'Poe',
-                            name    : 'Poe',
-                            track   : 'assets/locations/saskatoon/audio/poe.mp3'
-                        }
-                      ];
-  constructor(public navCtrl: NavController, public dataProvider:DataProvider, private _AUDIO:AudioProvider) {
-    
+  @ViewChild("source") source;
+  @ViewChild("bgimage") bgimage;
+  public city: any;
+  public destination: any;
+  public trackpath: SafeResourceUrl;
+  public tracktitle: string = "";
+  public imagePath: string = "";
+  public localPlatform: any;
+  public imageWidth: number = 0;
+  public imageHeight: number = 0;
+  public deviceWidth: number = 0;
+  public deviceHeight: number = 0;
+  public imgSizeRatio: number = 0;
+  public deviceSizeRatio: number = 0;
+  public imgWidth=100;
+  public imgHeight=100;
+  public orientation: any;
+  
+  constructor(public navCtrl: NavController, screenOrientation: ScreenOrientation, platform: Platform, public dataProvider:DataProvider, public sanitizer: DomSanitizer, public navParams: NavParams) {
+    let id = this.navParams.get('index')
+    this.localPlatform = platform;
+    this.orientation = screenOrientation;
+    dataProvider.storage.get('currentCity').then((val) => {
+      this.city = JSON.parse(val);
+      this.tracktitle = this.city.destination[id].title;
+      this.trackpath = this.sanitizer.bypassSecurityTrustResourceUrl(this.city.destination[id].audiopath);
+      //this.bgimage.src
+      this.imagePath = this.city.destination[id].imgPath;
+      this.bgimage.onload = () => { this.getSizes(); }
+    });
   }
-
-  /**
-    *
-    * Load the requested track, determine if existing audio is
-    * currently playing or not
-    *
-    * @method loadSound
-    * @param track {String} The file path of the audio track to be loaded
-    * @return {none}
-    */
-    loadSound(track : string): void
-    {
-       if(!this.isPlaying)
-       {
-          this.triggerPlayback(track);
-       }
-       else
-       {
-          this.isPlaying  = false;
-          this.stopPlayback();
-          this.triggerPlayback(track);
-       }
+  getSizes() {
+    console.log("width="+this.bgimage.nativeElement.clientWidth);
+    this.localPlatform.ready().then((readySource) => {
+      this.deviceWidth = this.localPlatform.width();
+      this.deviceHeight = this.localPlatform.height()-56; // header is 56 pixels - lazy coding, should be fetching it
+      this.imageWidth = this.bgimage.nativeElement.width;
+      this.imageHeight = this.bgimage.nativeElement.height;
+      this.deviceSizeRatio = this.deviceWidth/this.deviceHeight;
+      this.imgSizeRatio = this.imageWidth/this.imageHeight;
+      this.sizeImage();
+    });
+  }
+  sizeImage() {
+    /* this will work if width & height changes due to orientation */
+    this.deviceWidth = this.localPlatform.width();
+    this.deviceHeight = this.localPlatform.height()-56; // header is 56 pixels - lazy coding, should be fetching it
+    this.deviceSizeRatio = this.deviceWidth/this.deviceHeight;
+    if(this.imgSizeRatio > this.deviceSizeRatio) {
+      this.imgHeight = this.deviceHeight;
+      this.imgWidth = this.deviceHeight*this.imgSizeRatio;
     }
- 
- 
- 
-    /**
-     *
-     * Load the requested track using the Audio service
-     *
-     * @method triggerPlayback
-     * @param track {String} The file path of the audio track to be loaded
-     * @return {none}
-     */
-    triggerPlayback(track : string): void
-    {
-       this._AUDIO.loadSound(track);
-       this.isPlaying  = true;
+    else {
+      this.imgWidth = this.deviceWidth;
+      this.imgHeight = this.deviceWidth / this.imgSizeRatio;
     }
- 
- 
- 
- 
-    /**
-     *
-     * Change playback volume
-     *
-     * @method changeVolume
-     * @param volume {Any} The volume control slider value
-     * @return {none}
-     */
-    changeVolume(volume : any) : void
-    {
-       console.log(volume.value);
-       //this._AUDIO.changeVolume(volume.value);
-       this._AUDIO.changeVolume(volume);
-    }
- 
- 
- 
- 
-    /**
-     *
-     * Stop audio playback
-     *
-     * @method stopPlayback
-     * @return {none}
-     */
-    stopPlayback() : void
-    {
-       this.isPlaying  = false;
-       this._AUDIO.stopSound();
-    }
+  }
 }

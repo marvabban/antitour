@@ -27,4 +27,5 @@ export class CityPage {
       direction: 'forward'
     }); 
   }
+
 }

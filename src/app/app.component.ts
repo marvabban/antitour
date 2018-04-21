@@ -4,11 +4,7 @@ import { FirstRunPage } from '../pages/pages';
 
 @Component({
   template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    
 
     <ion-content>
       <ion-list>
@@ -27,10 +23,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Map', component: 'MapPage' },
-    { title: 'Cities', component: 'CityPage' },
-    { title: 'Story', component: 'StoryPage' }
+    { title: 'Instructions', component: 'TutorialPage' },
+    { title: 'Locations', component: 'CityPage' }
   ]
 
 
@@ -38,6 +32,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component,{'instructions':true});
+    
   }
 }

@@ -1,53 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Story 
+      {{tracktitle}}
     </ion-title> 
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <!--
-     Stops playback of audio track currently playing
-   -->
-   <button
-      ion-button
-      block
-      color="danger"
-      (click)="stopPlayback()">
-      Stop
-   </button>
-
-
-   <!--
-     Manage volume change of audio playback
-   -->
-   <ion-item>
-      Volume:
-      <ion-range
-         pin = "true"
-         step="5"
-         snaps="false"
-         min="0"
-         max="100"
-         [(ngModel)]="volume"
-         (ionChange)="changeVolume($event, volume)">>
-         <ion-icon range-left small name="0"></ion-icon>
-         <ion-icon range-right name="100"></ion-icon>
-      </ion-range>
-   </ion-item>
-
-
-   <!--
-     Iterate through audio tracks listed in component
-     class, embed data in button and allow track to be
-     selected/played
-   -->
-   <button *ngFor="let track of tracks"
-      ion-button
-      block
-      color="primary"
-      (click)="loadSound(track.track)">
-      {{ track.artist}} - {{ track.name }}
-   </button>
+<ion-content id="storybg" [ngStyle]="{ background: 'url(' + imagePath + ') no-repeat fixed center' }">
+    <!--<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" [src]="trackpath"></iframe>
+    
+    <img #bgimage src={{imagePath}} style="height:100px; width:auto; position:absolute; left:0px; top:0px;" (load)="getSizes(this);">
+    <ion-img #bgimage src={{imagePath}} [width]="imgWidth" [height]="imgHeight" style="object-fit: cover" ></ion-img> -->
+    <audio #audio controls autoplay controlsList="nodownload" style="position:absolute; top:12px; left:0px; width:100%;">
+        
+        <source *ngIf="trackpath" [src]="trackpath" type="audio/mpeg">
+      Your device does not support the audio element.
+      </audio> 
 </ion-content>

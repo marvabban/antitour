@@ -1,11 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Saskatoon 
-    </ion-title> Some kind of navigation here
+      {{currentCity.name}}
+    </ion-title>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <div #map id="map"></div> 
+  <agm-map id="map" [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom" [usePanning]=true>
+    <!-- <agm-marker [latitude]="52.142654" [longitude]="-106.643753">
+      <agm-snazzy-info-window [maxWidth]="280" [closeWhenOthersOpen]="true">
+        <ng-template>
+          My first Snazzy Info Window!
+        </ng-template>
+      </agm-snazzy-info-window>
+    </agm-marker> -->
+    <agm-marker  *ngFor="let marker of markers; let i = index" [latitude]="marker.lat" [longitude]="marker.lng">
+      <agm-snazzy-info-window [maxWidth]="280" [closeWhenOthersOpen]="true">
+        <ng-template>
+          <div [innerHTML]=markers[i].content></div>
+          <button ion-button (click)="goToStory(i)">Click for story</button>
+        </ng-template>
+      </agm-snazzy-info-window>
+    </agm-marker>
+  </agm-map> 
 </ion-content>

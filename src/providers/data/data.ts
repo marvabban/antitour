@@ -14,9 +14,12 @@ import { Storage } from '@ionic/storage';
 export class DataProvider {
 
   data: any;
+  sitePrefix: string = "http://markaltman.ca/antitour/";
+  //sitePrefix: string = "assets/";
   cities: Array<any> = []
   currentCityID: number = -1;
   currentCity: any = {};
+  currentStory: number = 0;
 
   constructor(public http: Http, public storage:Storage) {
     this.load().then(data => {
@@ -25,7 +28,7 @@ export class DataProvider {
       // keep data in local storage
       storage.set('localdata', JSON.stringify(this.data));
       for (var i of this.data.location) {
-        let tempObj = {"name":i.name,"id":i.id,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path}
+        let tempObj = {"name":i.name,"id":i.id,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path}
         this.cities.push(tempObj);
        }
       storage.set('cities', JSON.stringify(this.cities));
@@ -34,11 +37,14 @@ export class DataProvider {
   }
 
   load(): any {
-    return this.http.get('assets/data/data.json')
+    return this.http.get(this.sitePrefix+'/data.json')
       .map(res => res.json()).toPromise();
   }
 
-
+  setCurrentStory(id) {
+    this.currentStory = id;
+    this.storage.set("currentStory",id);
+  }
   setCurrentCity(id) {
     this.currentCityID = id;
     console.log("in setCurrentCity id="+id);
@@ -47,11 +53,11 @@ export class DataProvider {
       console.log("passed in id was "+i+" id in loop is "+i.id+" ")
       if(i.id==id) {
         console.log("in setCurrentCity matched id");
-        this.currentCity = {"name":i.name,"id":i.Id,"lat":i.lat,"lon":i.lon,"imgCaption":i.img[0].caption,"imgPath":i.img[0].path, "destination":[]};
+        this.currentCity = {"name":i.name,"id":i.Id,"lat":i.lat,"lon":i.lon,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path, "destination":[]};
         
         for(var j of i.destination) {
           console.log("in destination"+i.id);
-          this.currentCity.destination.push({"lat":j.dlat,"lon":j.dlon,"title":j.dtitle,"audiopath":j.daudiopath,"imgCaption":j.dimg[0].dcaption,"imgPath":j.dimg[0].path});
+          this.currentCity.destination.push({"lat":j.dlat,"lon":j.dlon,"title":j.dtitle,"audiopath":this.sitePrefix+j.daudiopath,"imgCaption":j.dimg[0].dcaption,"imgPath":this.sitePrefix+j.dimg[0].dpath});
         }
       }
       console.log("Current city = "+JSON.stringify(this.currentCity));

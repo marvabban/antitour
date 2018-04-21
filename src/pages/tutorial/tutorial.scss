@@ -3,6 +3,16 @@ page-tutorial {
     background: transparent;
     border-color: transparent;
   }
+  ion-slides.slides {
+    background-image: url("../assets/imgs/waves.jpg");
+  }
+     
+  .button-outline-md, .button-ios {
+    border-color:#000000;
+    color: #000000;
+    background-color:#c9f2ff;
+    margin-bottom:20px;
+  }
 
   .slide-zoom {
     height: 100%;
@@ -16,6 +26,22 @@ page-tutorial {
     max-height: 40%;
     max-width: 60%;
     margin: 36px 0;
+  }
+
+  #instruction-container {
+    width:86%;
+    margin:20px auto;
+    background-color:#c9f2ff;
+    border:1px solid #000;
+    color:#000;
+    border-radius: 20px;
+    padding-right:12px;
+    padding-bottom:8px;
+    text-align:left;
+  }
+
+  #instruction-container h3 {
+    text-align:center;
   }
 
   b {

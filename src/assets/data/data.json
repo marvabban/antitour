@@ -8,31 +8,79 @@
       "img": [
         {
           "caption": "Saskatoon",
-          "path": "assets/locations/saskatoon/img/saskatoon.jpg"
+          "path": "locations/saskatoon/img/saskatoon.jpg"
         }
       ],
       "destination": [
         {
-          "dlat": "52.134531",
-          "dlon": "-106.666743",
-          "dtitle": "Dairy Queen",
-          "daudiopath": "assets/locations/saskatoon/audio/dq.mp3",
+          "dlat": "52.128741",
+          "dlon": "-106.635116",
+          "dtitle": "The College Inn",
+          "daudiopath": "locations/saskatoon/audio/SasSK_College.mp3",
           "dimg": [
             {
               "dcaption": "A Caption",
-              "dpath": "assets/locations/saskatoon/img/dq1.jpg"
+              "dpath": "locations/saskatoon/img/dq1.jpg"
             }
           ]
         },
         {
-          "dlat": "52.131699",
-          "dlon": "-106.674317",
-          "dtitle": "Dairy Queen 2",
-          "daudiopath": "assets/locations/saskatoon/audio/dq.mp3",
+          "dlat": "52.100127",
+          "dlon": "-106.669359",
+          "dtitle": "Stan's Place",
+          "daudiopath": "locations/saskatoon/audio/SasSK_Stans.mp3",
           "dimg": [
             {
-              "dcaption": "A Caption 2",
-              "dpath": "assets/locations/saskatoon/img/dq2.jpg"
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq2.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.142654",
+          "dlon": "-106.643753",
+          "dtitle": "Empty Parking Lot",
+          "daudiopath": "locations/saskatoon/audio/SasSK_Parking.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq2.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.104892",
+          "dlon": "-106.668840",
+          "dtitle": "Thornton Park",
+          "daudiopath": "locations/saskatoon/audio/SasSK_Park.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq2.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.118548",
+          "dlon": "-106.657353",
+          "dtitle": "Back Alley",
+          "daudiopath": "locations/saskatoon/audio/SasSK_BarAlley01.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq2.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.118278",
+          "dlon": "-106.657029",
+          "dtitle": "Yard and Flagon",
+          "daudiopath": "locations/saskatoon/audio/SasSK_BarAlley02.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq2.jpg"
             }
           ]
         }
@@ -46,7 +94,7 @@
       "img": [
         {
           "caption": "Victoria",
-          "path": "assets/locations/victoria/img/victoria.jpg"
+          "path": "locations/victoria/img/victoria.jpg"
         }
       ],
       "destination": [
@@ -54,11 +102,11 @@
           "dlat": "12",
           "dlon": "24",
           "dtitle": "Dairy Queen",
-          "daudiopath": "assets/locations/saskatoon/audio/dq.mp3",
+          "daudiopath": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/405992316&color=%238a837c&auto_play=true&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
           "dimg": [
             {
               "dcaption": "A Caption",
-              "dpath": "assets/locations/saskatoon/img/dq1.jpg"
+              "dpath": "locations/saskatoon/img/dq1.jpg"
             }
           ]
         }

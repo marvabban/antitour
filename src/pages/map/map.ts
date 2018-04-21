@@ -15,7 +15,7 @@ export class MapPage {
   map: any = {};
   markers: any = [];
   currentCity: any = {};
-  GeoLocation: any = null;
+
   constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider) {
     this.dataProvider.storage.get('currentCity').then((val) => {
       this.currentCity = JSON.parse(val);
@@ -56,7 +56,6 @@ export class MapPage {
           { 'lat':+spot.lat,'lng':+spot.lon,'content':content }
         );
       }
-      this.GeoMarker = new GeolocationMarker(this.map);
    }
    addInfoWindow(marker, content, index){
      this.dataProvider.storage.set("destination", this.currentCity.destination[index]);

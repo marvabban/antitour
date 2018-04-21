@@ -38,7 +38,7 @@ export class StoryPage {
       this.trackpath = this.sanitizer.bypassSecurityTrustResourceUrl(this.city.destination[id].audiopath);
       //this.bgimage.src
       this.imagePath = this.city.destination[id].imgPath;
-      this.bgimage.onload = () => { this.getSizes(); }
+      //this.bgimage.onload = () => { this.getSizes(); }
     });
   }
   getSizes() {

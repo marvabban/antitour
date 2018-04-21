@@ -1,0 +1,68 @@
+{
+  "location": [
+    {
+      "lat": "52.133214",
+      "lon": "-106.670046",
+      "id": "0",
+      "name": "Saskatoon, SK",
+      "img": [
+        {
+          "caption": "Saskatoon",
+          "path": "locations/saskatoon/img/saskatoon.jpg"
+        }
+      ],
+      "destination": [
+        {
+          "dlat": "52.134531",
+          "dlon": "-106.666743",
+          "dtitle": "Dairy Queen",
+          "daudiopath": "locations/saskatoon/audio/dq.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq1.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.131699",
+          "dlon": "-106.674317",
+          "dtitle": "Dairy Queen 2",
+          "daudiopath": "locations/saskatoon/audio/dq.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption 2",
+              "dpath": "locations/saskatoon/img/dq2.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lat": "52.133214",
+      "lon": "-106.670046",
+      "id": "1",
+      "name": "Victoria, BC",
+      "img": [
+        {
+          "caption": "Victoria",
+          "path": "locations/victoria/img/victoria.jpg"
+        }
+      ],
+      "destination": [
+        {
+          "dlat": "12",
+          "dlon": "24",
+          "dtitle": "Dairy Queen",
+          "daudiopath": "locations/saskatoon/audio/dq.mp3",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/dq1.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

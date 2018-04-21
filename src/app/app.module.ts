@@ -9,24 +9,17 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import {ScreenOrientation} from "@ionic-native/screen-orientation";
 
 import { CityPage } from '../pages/city/city'; /** change this to map if only one spot (city) */
-//import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
-import { MapPage } from '../pages/map/map';
-import { StoryPage } from '../pages/story/story';
-import { TutorialPage } from '../pages/tutorial/tutorial';
 //import { AudioProvider } from '../providers/audio/audio';
 
 @NgModule({
   declarations: [
-    MyApp,
-    CityPage,
-    MapPage,
-    StoryPage,
-    TutorialPage /** change this to SpotGroupPage if more than one spot (city) */
+    MyApp /** change this to SpotGroupPage if more than one spot (city) */
   ],
   imports: [
     BrowserModule,
@@ -41,15 +34,13 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    CityPage,
-    MapPage,
-    StoryPage,
-    TutorialPage /** change this to MapPage if only one spot (city) */
+    CityPage /** change this to MapPage if only one spot (city) */
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ScreenOrientation,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
   ]

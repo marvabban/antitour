@@ -10,14 +10,8 @@
 </ion-header>
 
 <ion-content>
+  
   <agm-map id="map" [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom" [usePanning]=true>
-    <!-- <agm-marker [latitude]="52.142654" [longitude]="-106.643753">
-      <agm-snazzy-info-window [maxWidth]="280" [closeWhenOthersOpen]="true">
-        <ng-template>
-          My first Snazzy Info Window!
-        </ng-template>
-      </agm-snazzy-info-window>
-    </agm-marker> -->
     <agm-marker  *ngFor="let marker of markers; let i = index" [latitude]="marker.lat" [longitude]="marker.lng">
       <agm-snazzy-info-window [maxWidth]="280" [closeWhenOthersOpen]="true">
         <ng-template>
@@ -26,5 +20,7 @@
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
+    <agm-marker [latitude]="cur.lat" [longitude]="cur.lng" [iconUrl]="cur.icn"></agm-marker>
   </agm-map> 
+ 
 </ion-content>

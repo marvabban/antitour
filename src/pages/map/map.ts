@@ -15,6 +15,9 @@ export class MapPage {
   map: any = {};
   markers: any = [];
   currentCity: any = {};
+  cur: any = {lat:0,lng:0,iconUrl:""};
+  floorplan: string="http://markaltman.ca/antitour/floorplan.jpg";
+  ismap:boolean=false;
 
   constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider) {
     this.dataProvider.storage.get('currentCity').then((val) => {
@@ -39,13 +42,18 @@ export class MapPage {
     let GeoMarker = new GeolocationMarker(this.map);
     this.addMarkers(); */
     this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
-      let mylocation = new google.maps.LatLng(resp.coords.latitude,resp.coords.longitude); });
-    this.map = {
-      lat: +this.currentCity.lat,
-      lng: +this.currentCity.lon,
-      zoom: 12
-    }
-    this.addMarkers();
+       
+      this.map = {
+        lat: +this.currentCity.lat,
+        lng: +this.currentCity.lon,
+        zoom: 12
+      }
+      this.addMarkers();
+      this.cur.lat=resp.coords.latitude;
+      this.cur.lng=resp.coords.longitude;
+      this.cur.icn="http://markaltman.ca/antitour/cur40.png";
+    });
+    
   }
 
   addMarkers(){

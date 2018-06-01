@@ -25,37 +25,20 @@ export class TutorialPage {
     this.dataProvider.storage.get('cities').then((val) => {
       this.cities = JSON.parse(val);
     });
-    
     this.dir = platform.dir();
-   /* this.slides = [
-      {
-        title: "Every Sordid Detail",
-        description: "<button ion-button round>instructions</button><button ion-button round>take the anti-tour</button>",
-        image: 'assets/imgs/everysordiddetail.png',
-      },
-      {
-        title: "More Tutorial",
-        description: "Don't worry, We will replace this with real instructions later.",
-        image: 'assets/img/ica-slidebox-img-2.png',
-      },
-      {
-        title: "Even more tutorial",
-        description: "We can also set this tutorial to only be displayed the first time they use the app. It could be accessed again in a menu maybe?",
-        image: 'assets/img/ica-slidebox-img-3.png',
-      }]; */
   }
   slideNext() {
     this.slides.slideNext();
   }
   startApp() {
     if(this.cities.length>1) {
-      this.navCtrl.setRoot('CityPage', {}, {
+      this.navCtrl.push('CityPage', {}, {
         animate: true,
         direction: 'forward'
       });
     }
     else {
-      this.navCtrl.setRoot('MapPage', {}, {
+      this.navCtrl.push('MapPage', {}, {
         animate: true,
         direction: 'forward'
       });

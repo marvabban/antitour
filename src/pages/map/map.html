@@ -9,9 +9,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  
-  <agm-map id="map" [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom" [usePanning]=true>
+<ion-content >
+  <agm-map *ngIf="ismap" id="map" [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom" [usePanning]=true>
     <agm-marker  *ngFor="let marker of markers; let i = index" [latitude]="marker.lat" [longitude]="marker.lng">
       <agm-snazzy-info-window [maxWidth]="280" [closeWhenOthersOpen]="true">
         <ng-template>
@@ -22,5 +21,38 @@
     </agm-marker>
     <agm-marker [latitude]="cur.lat" [longitude]="cur.lng" [iconUrl]="cur.icn"></agm-marker>
   </agm-map> 
+
+ <!-- <floorplan *ngIf="! ismap">
+  </floorplan> -->
+  <div *ngIf="! ismap" style="width:100%; height:100%">
+    <!-- info window -->
+      <div *ngIf="windowopen" class="si-wrapper-top si-has-border" id="infowindow" [ngStyle]="InfoWindowStyles">
+        <div class="si-shadow-wrapper-top">
+          <div class="si-frame si-shadow-frame"></div>
+          <div class="si-shadow-pointer-top">
+            <div class="si-shadow-inner-pointer-top"></div>
+          </div>
+        </div>
+        <div class="si-frame si-content-wrapper">
+          <button type="button" class="si-close-button" (click)="closeit()">×</button>
+          <div class="si-content" style="max-width: 218px; max-height: 123px;">
+            <div>
+              <div></div>
+              <div>
+                <h4 [innerHTML]="InfoWindowHeader">Empty Parking Lot</h4>
+              </div>
+              <button ion-button="" (click)="goToFPStory()" class="button button-md button-default button-default-md" >
+                <span class="button-inner">Click for story</span>
+                <div class="button-effect"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="si-pointer-top si-pointer-border-top"></div>
+        <div class="si-pointer-top si-pointer-bg-top" style="border-width: 15px; margin-bottom: 0px; top: -1px;"></div>
+      </div>
+  <img-map #fpmap (click)="openIt($this,$event)" *ngIf="! ismap" src="http://antitourismtour.com/app-data/locations/openspace/img/Open-Space-floorplan.jpg" [markers]="fpmarkers">
  
+</img-map>
+</div>
 </ion-content>

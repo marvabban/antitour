@@ -128,26 +128,14 @@
       ],
       "destination": [
         {
-          "dlat": "70",
-          "dlon": "28",
-          "dtitle": "Stan's Place",
-          "daudiopath": "locations/saskatoon/audio/SasSK_Stans.mp3",
+          "dlat": "12",
+          "dlon": "24",
+          "dtitle": "Dairy Queen",
+          "daudiopath": "",
           "dimg": [
             {
               "dcaption": "A Caption",
-              "dpath": "locations/saskatoon/img/stansplace.jpg"
-            }
-          ]
-        },
-        {
-          "dlat": "20",
-          "dlon": "60",
-          "dtitle": "Empty Parking Lot",
-          "daudiopath": "locations/saskatoon/audio/SasSK_Parking.mp3",
-          "dimg": [
-            {
-              "dcaption": "A Caption",
-              "dpath": "locations/saskatoon/img/dq2.jpg"
+              "dpath": "locations/saskatoon/img/dq1.jpg"
             }
           ]
         }

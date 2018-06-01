@@ -1,9 +1,8 @@
 {
   "location": [
     {
-      "lat": "52.133214",
+      "lat": "57.7",
       "lon": "-106.670046",
-      "imgForMap": "",
       "id": "0",
       "name": "Saskatoon, SK",
       "img": [
@@ -33,7 +32,7 @@
           "dimg": [
             {
               "dcaption": "A Caption",
-              "dpath": "locations/saskatoon/img/stansplace.jpg"
+              "dpath": "locations/saskatoon/img/dq2.jpg"
             }
           ]
         },
@@ -69,7 +68,7 @@
           "dimg": [
             {
               "dcaption": "A Caption",
-              "dpath": "locations/saskatoon/img/backalley.jpg"
+              "dpath": "locations/saskatoon/img/dq2.jpg"
             }
           ]
         },
@@ -90,8 +89,7 @@
     {
       "lat": "52.133214",
       "lon": "-106.670046",
-      "imgForMap": "",
-      "id": "1",
+      "id": "2",
       "name": "Victoria, BC",
       "img": [
         {
@@ -104,7 +102,7 @@
           "dlat": "12",
           "dlon": "24",
           "dtitle": "Dairy Queen",
-          "daudiopath": "",
+          "daudiopath": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/405992316&color=%238a837c&auto_play=true&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
           "dimg": [
             {
               "dcaption": "A Caption",
@@ -117,7 +115,6 @@
     {
       "lat": "0",
       "lon": "0",
-      "imgForMap": "locations/openspace/img/Open-Space-floorplan.jpg",
       "id": "3",
       "name": "Open Space Gallery",
       "img": [
@@ -128,26 +125,14 @@
       ],
       "destination": [
         {
-          "dlat": "70",
-          "dlon": "28",
-          "dtitle": "Stan's Place",
-          "daudiopath": "locations/saskatoon/audio/SasSK_Stans.mp3",
+          "dlat": "12",
+          "dlon": "24",
+          "dtitle": "Dairy Queen",
+          "daudiopath": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/405992316&color=%238a837c&auto_play=true&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
           "dimg": [
             {
               "dcaption": "A Caption",
-              "dpath": "locations/saskatoon/img/stansplace.jpg"
-            }
-          ]
-        },
-        {
-          "dlat": "20",
-          "dlon": "60",
-          "dtitle": "Empty Parking Lot",
-          "daudiopath": "locations/saskatoon/audio/SasSK_Parking.mp3",
-          "dimg": [
-            {
-              "dcaption": "A Caption",
-              "dpath": "locations/saskatoon/img/dq2.jpg"
+              "dpath": "locations/saskatoon/img/dq1.jpg"
             }
           ]
         }

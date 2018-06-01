@@ -7,7 +7,6 @@ import { MyApp } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import {ScreenOrientation} from "@ionic-native/screen-orientation";
-
 import { CityPage } from '../pages/city/city'; /** change this to map if only one spot (city) */
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,11 +14,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
+//import { FloorplanComponent } from '../components/floorplan/floorplan'
 //import { AudioProvider } from '../providers/audio/audio';
 
 @NgModule({
   declarations: [
-    MyApp /** change this to SpotGroupPage if more than one spot (city) */
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -29,6 +29,7 @@ import { HttpModule } from '@angular/http';
     IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyARb8UGWOZ15KNy9IjxDtO7_8v20JTiJCk'}),
     AgmSnazzyInfoWindowModule,
+   // Floor
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

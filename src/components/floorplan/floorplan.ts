@@ -36,7 +36,7 @@ export class FloorplanComponent {
     this.navCtrl.push('StoryPage', {"index":index}); 
    }
    addFloorplanMarkers() {
-    alert("adding markers");
+    
    }
 
 }

@@ -2,10 +2,7 @@ import { ElementRef, Component, ViewChild } from '@angular/core';
 import { IonicPage,  NavController} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { DataProvider } from './../../providers/data/data';
-import {AlertController} from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-
-// 
 
 declare var google;
 
@@ -28,16 +25,24 @@ export class MapPage {
   InfoWindowStyles: any = { 'left':'20px', 'top':'20px'};
   @ViewChild('fpmap') fpmap: ElementRef;
 
-  constructor(private alertController: AlertController,public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider, private screenOrientation: ScreenOrientation) {
+  constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider, private screenOrientation: ScreenOrientation) {
     this.dataProvider.storage.get('currentCity').then((val) => {
       
       this.currentCity = JSON.parse(val);
      
       if(this.currentCity.id==3) {
-        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.addFloorplanMarkers();
         this.ismap=false;
-        // set #mapimg dimensions (100 / auto) based on screen dimension
+        /* set #mapimg dimensions (100 / auto) based on screen dimension
+        if(window.innerHeight-36/window.innerWidth>.461) {
+          document.getElementById("fpmap").style.width='100%';
+          document.getElementById("fpmap").style.width='auto';
+        }
+        else {
+          document.getElementById("fpmap").style.width='auto';
+          document.getElementById("fpmap").style.width=String(window.innerHeight-36)+'px';
+        }*/
       }
       else {
         this.ismap=true;
@@ -46,11 +51,20 @@ export class MapPage {
       
     });
   }
- 
+
   ionViewDidLoad(){
+    if(this.currentCity.id==3) {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
+  }
+  ionViewDidLeave(){
+    this.screenOrientation.unlock();
+  }
+  checkOrientation() {
+    
     
   }
- 
+  
   loadMap(){
     this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
       
@@ -105,20 +119,17 @@ export class MapPage {
     return dist;
   }
    goToStory(index) {
-    console.log("in buttonClick"+index);
     this.dataProvider.setCurrentStory(index);
     this.navCtrl.push('StoryPage', {"index":index}); 
    }
    addFloorplanMarkers() {
      for (let spot of this.currentCity.destination) {
-      console.log("a");
       var arr : Array<any> = [spot.lat,spot.lon];
       this.fpmarkers.push(arr);
     }
     //this.fpmap.nativeElement.draw();
    }
    goToFPStory() {
-    console.log("in buttonClick"+this.markerIndex);
     this.dataProvider.setCurrentStory(this.markerIndex);
     this.navCtrl.push('StoryPage', {"index":this.markerIndex}); 
    }

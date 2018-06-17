@@ -45,7 +45,7 @@
     "ionic-audio": "^3.2.0",
     "ionic-plugin-keyboard": "^2.2.1",
     "ionicons": "3.0.0",
-    "ng2-img-map": "^0.1.2",
+    "ng2-img-map": "https://github.com/marvabban/ng2-img-map/tarball/6b9a432e8e73a08bb6bbe4dbd4a02b401bf380de",
     "rxjs": "5.5.2",
     "snazzy-info-window": "^1.1.0",
     "sw-toolbox": "3.6.0",

@@ -31,9 +31,10 @@ export class MapPage {
       this.currentCity = JSON.parse(val);
      
       if(this.currentCity.id==3) {
+        this.ismap=false;
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.addFloorplanMarkers();
-        this.ismap=false;
+        
         /* set #mapimg dimensions (100 / auto) based on screen dimension
         if(window.innerHeight-36/window.innerWidth>.461) {
           document.getElementById("fpmap").style.width='100%';
@@ -76,7 +77,7 @@ export class MapPage {
       this.addMarkers();
       this.cur.lat=resp.coords.latitude;
       this.cur.lng=resp.coords.longitude;
-      this.cur.icn="assets/img/cur40.png";
+      this.cur.icn="../../assets/img/cur40.png";
     });
   }
 
@@ -102,7 +103,7 @@ export class MapPage {
       console.log(dist);
       if(dist<.1) {
        infoWindow.open(this.map, marker);
-       console.log("in info window clicked");
+       
       }
     });
   }
@@ -114,8 +115,7 @@ export class MapPage {
             c(lat1 * p) * c(lat2 * p) * 
             (1 - c((lon2 - lon1) * p))/2;
   
-    var dist = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-    console.log("distance="+dist);
+    var dist = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km-
     return dist;
   }
    goToStory(index) {

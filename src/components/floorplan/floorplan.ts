@@ -21,17 +21,12 @@ export class FloorplanComponent {
   constructor(public navCtrl: NavController, public dataProvider:DataProvider) {
     this.floorplanURL="http://antitourismtour.com/app-data/locations/openspace/img/Open-Space-floorplan.jpg";
     this.dataProvider.storage.get('currentCity').then((val) => {
-      console.log("city="+val);
-      //console.log("city="+val);
       this.currentCity = JSON.parse(val);
-      
-        this.addFloorplanMarkers();
-      
+      this.addFloorplanMarkers();
     });
   }
 
   goToStory(index) {
-    console.log("in buttonClick"+index);
     this.dataProvider.setCurrentStory(index);
     this.navCtrl.push('StoryPage', {"index":index}); 
    }

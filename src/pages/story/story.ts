@@ -42,7 +42,6 @@ export class StoryPage {
     });
   }
   getSizes() {
-    console.log("width="+this.bgimage.nativeElement.clientWidth);
     this.localPlatform.ready().then((readySource) => {
       this.deviceWidth = this.localPlatform.width();
       this.deviceHeight = this.localPlatform.height()-56; // header is 56 pixels - lazy coding, should be fetching it

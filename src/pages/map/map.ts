@@ -90,8 +90,8 @@ export class MapPage {
       }
    }
    addInfoWindow(marker, content, index){
-    var dist = google.maps.geometry.computeDistanceBetween(new google.maps.LatLng(marker.lat,marker.lng),new google.maps.LatLng(this.cur.lat,this.cur.lng))//this.distance.call(marker.lat,marker.lng,this.cur.lat,this.cur.lng);
-      console.log(dist);
+    //var dist = google.maps.geometry.computeDistanceBetween(new google.maps.LatLng(marker.lat,marker.lng),new google.maps.LatLng(this.cur.lat,this.cur.lng))//this.distance.call(marker.lat,marker.lng,this.cur.lat,this.cur.lng);
+    
     this.dataProvider.storage.set("destination", this.currentCity.destination[index]);
     let infoWindow = new google.maps.InfoWindow({
       content: content
@@ -99,15 +99,15 @@ export class MapPage {
    
     google.maps.event.addListener(marker, 'click', () => {
       
-      var dist = google.maps.geometry.computeDistanceBetween(new google.maps.LatLng(marker.lat,marker.lng),new google.maps.LatLng(this.cur.lat,this.cur.lng))//this.distance.call(marker.lat,marker.lng,this.cur.lat,this.cur.lng);
-      console.log(dist);
-      if(dist<.1) {
+      /*var dist = google.maps.geometry.computeDistanceBetween(new google.maps.LatLng(marker.lat,marker.lng),new google.maps.LatLng(this.cur.lat,this.cur.lng))//this.distance.call(marker.lat,marker.lng,this.cur.lat,this.cur.lng);
+      
+      if(dist<.1) { */
        infoWindow.open(this.map, marker);
        
-      }
+      // }
     });
   }
-   // distance helper function
+   /* distance helper function
    distance(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;    // Math.PI / 180
     var c = Math.cos;
@@ -117,7 +117,7 @@ export class MapPage {
   
     var dist = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km-
     return dist;
-  }
+  } */
    goToStory(index) {
     this.dataProvider.setCurrentStory(index);
     this.navCtrl.push('StoryPage', {"index":index}); 

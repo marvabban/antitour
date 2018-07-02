@@ -1,19 +1,19 @@
-import { MapPageModule } from './../pages/map/map.module';
-import { CityPageModule } from './../pages/city/city.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import { MyApp } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
-import {ScreenOrientation} from "@ionic-native/screen-orientation";
-import { CityPage } from '../pages/city/city'; /** change this to map if only one spot (city) */
-import { Geolocation } from '@ionic-native/geolocation';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { IonicStorageModule } from '@ionic/storage';
-import { DataProvider } from '../providers/data/data';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { Geolocation } from '@ionic-native/geolocation';
+import { ScreenOrientation } from "@ionic-native/screen-orientation";
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { CityPage } from '../pages/city/city'; /** change this to map if only one spot (city) */
+import { DataProvider } from '../providers/data/data';
+import { CityPageModule } from './../pages/city/city.module';
+import { MapPageModule } from './../pages/map/map.module';
+import { MyApp } from './app.component';
 //import { FloorplanComponent } from '../components/floorplan/floorplan'
 //import { AudioProvider } from '../providers/audio/audio';
 
@@ -40,7 +40,7 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    ScreenOrientation,
+    //ScreenOrientation,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider

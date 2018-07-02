@@ -2,7 +2,7 @@ import { ElementRef, Component, ViewChild } from '@angular/core';
 import { IonicPage,  NavController} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { DataProvider } from './../../providers/data/data';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 declare var google;
 
@@ -25,14 +25,14 @@ export class MapPage {
   InfoWindowStyles: any = { 'left':'20px', 'top':'20px'};
   @ViewChild('fpmap') fpmap: ElementRef;
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider, private screenOrientation: ScreenOrientation) {
+  constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider/*, private screenOrientation: ScreenOrientation*/) {
     this.dataProvider.storage.get('currentCity').then((val) => {
       
       this.currentCity = JSON.parse(val);
      
       if(this.currentCity.id==3) {
         this.ismap=false;
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.addFloorplanMarkers();
         
         /* set #mapimg dimensions (100 / auto) based on screen dimension
@@ -55,11 +55,11 @@ export class MapPage {
 
   ionViewDidLoad(){
     if(this.currentCity.id==3) {
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
   }
   ionViewDidLeave(){
-    this.screenOrientation.unlock();
+    //this.screenOrientation.unlock();
   }
   checkOrientation() {
     

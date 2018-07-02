@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage,  NavController, NavParams, Platform} from 'ionic-angular';
 import { DataProvider } from './../../providers/data/data';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import {ScreenOrientation} from "@ionic-native/screen-orientation";
+//import {ScreenOrientation} from "@ionic-native/screen-orientation";
 
 @IonicPage()
 @Component({
@@ -28,10 +28,10 @@ export class StoryPage {
   public imgHeight=100;
   public orientation: any;
   
-  constructor(public navCtrl: NavController, screenOrientation: ScreenOrientation, platform: Platform, public dataProvider:DataProvider, public sanitizer: DomSanitizer, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,/* screenOrientation: ScreenOrientation,*/ platform: Platform, public dataProvider:DataProvider, public sanitizer: DomSanitizer, public navParams: NavParams) {
     let id = this.navParams.get('index')
     this.localPlatform = platform;
-    this.orientation = screenOrientation;
+    //this.orientation = screenOrientation;
     dataProvider.storage.get('currentCity').then((val) => {
       this.city = JSON.parse(val);
       this.tracktitle = this.city.destination[id].title;

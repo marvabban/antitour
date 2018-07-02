@@ -31,7 +31,7 @@ page-tutorial {
     margin: 36px 0;
   }
 
-  #instruction-container {
+  #instruction-container, #credits-container {
     width:86%;
     margin:20px auto;
     background-color:#ffffff;
@@ -43,7 +43,7 @@ page-tutorial {
     text-align:left;
   }
 
-  #instruction-container h3 {
+  #instruction-container h3, #credits-container h3 {
     text-align:center;
   }
 
@@ -53,9 +53,7 @@ page-tutorial {
 
   p {
     padding: 0 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #60646B;
+   
 
     b {
       color: #000000;

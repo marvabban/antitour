@@ -22,7 +22,7 @@ export class MapPage {
   windowopen=false;
   InfoWindowHeader: string = "";
   markerIndex: any = -1;
-  InfoWindowStyles: any = { 'left':'20px', 'top':'20px'};
+  InfoWindowStyles: any = { 'left':'20px', 'top':'20px','height':'auto'};
   @ViewChild('fpmap') fpmap: ElementRef;
 
   constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider/*, private screenOrientation: ScreenOrientation*/) {

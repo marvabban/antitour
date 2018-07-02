@@ -15,5 +15,8 @@ page-map {
         //transform: translate(0,0);
         z-index:100;
       }
+      div.si-content {
+        max-height:260px !important;
+      }
       
 }

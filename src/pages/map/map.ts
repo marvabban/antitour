@@ -77,7 +77,7 @@ export class MapPage {
       this.addMarkers();
       this.cur.lat=resp.coords.latitude;
       this.cur.lng=resp.coords.longitude;
-      this.cur.icn="../../assets/img/cur40.png";
+      this.cur.icn="http://antitourismtour.com/app-data/img/cur40.png";
     });
   }
 

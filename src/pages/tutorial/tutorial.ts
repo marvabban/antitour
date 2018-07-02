@@ -31,19 +31,8 @@ export class TutorialPage {
     this.slides.slideNext();
   }
   startApp() {
-    if(this.cities.length>1) {
-      this.navCtrl.push('CityPage', {}, {
-        animate: true,
-        direction: 'forward'
-      });
-    }
-    else {
-      this.navCtrl.push('MapPage', {}, {
-        animate: true,
-        direction: 'forward'
-      });
-    }
     
+      this.navCtrl.push('CityPage');
   }
 
   onSlideChangeStart(slider) {
@@ -55,6 +44,10 @@ export class TutorialPage {
     this.menu.enable(false);
     if(this.navParams.get('instructions')) {
       this.slides.slideNext(1);
+      //this.slideNext();
+    }
+    if(this.navParams.get('credits')) {
+      this.slides.slideNext(2);
       //this.slideNext();
     }
   }

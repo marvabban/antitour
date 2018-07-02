@@ -24,7 +24,8 @@ export class MyApp {
 
   pages: any[] = [
     { title: 'Instructions', component: 'TutorialPage' },
-    { title: 'Locations', component: 'CityPage' }
+    { title: 'Locations', component: 'CityPage' },
+    { title: 'Credits', component: 'TutorialPage' }
   ]
 
 
@@ -33,6 +34,5 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component,{'instructions':true});
-    
   }
 }

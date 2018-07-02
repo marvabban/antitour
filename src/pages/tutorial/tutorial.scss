@@ -8,6 +8,8 @@ page-tutorial {
     -webkit-background-size: cover !important;
     -moz-background-size: cover  !important;
     background-size: cover  !important;
+    overflow-y:scroll;
+    
   }
      
   .button-outline-md, .button-ios {
@@ -19,6 +21,7 @@ page-tutorial {
 
   .slide-zoom {
     height: 100%;
+    overflow-y:scroll;
   }
 
   .slide-title {

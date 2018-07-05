@@ -16,7 +16,6 @@ export interface Slide {
 export class TutorialPage {
   @ViewChild(Slides) slides: Slides;
 
-  
   showSkip = true;
   dir: string = 'ltr';
   cities: Array<any> = [];
@@ -24,6 +23,10 @@ export class TutorialPage {
     /* get / set data */
     this.dataProvider.storage.get('cities').then((val) => {
       this.cities = JSON.parse(val);
+      /* remove this */
+
+
+      /* to this */
     });
     this.dir = platform.dir();
   }
@@ -31,7 +34,7 @@ export class TutorialPage {
     this.slides.slideNext();
   }
   startApp() {
-    
+
       this.navCtrl.push('CityPage');
   }
 
@@ -44,11 +47,9 @@ export class TutorialPage {
     this.menu.enable(false);
     if(this.navParams.get('instructions')) {
       this.slides.slideNext(1);
-      //this.slideNext();
     }
     if(this.navParams.get('credits')) {
       this.slides.slideNext(2);
-      //this.slideNext();
     }
   }
 

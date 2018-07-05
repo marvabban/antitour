@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FloorplanComponent } from './floorplan/floorplan';
 @NgModule({
-	declarations: [FloorplanComponent],
-	imports: [],
-	exports: [FloorplanComponent]
+	imports: []
 })
 export class ComponentsModule {}

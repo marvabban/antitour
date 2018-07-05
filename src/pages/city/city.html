@@ -1,11 +1,8 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Locations 
+      Locations
     </ion-title>
-    <!-- <ion-buttons end>
-       <button ion-button icon-only (click)="goToHelp()"><ion-icon name="help"></ion-icon></button>
-    </ion-buttons> -->
     <button ion-button menuToggle end>
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -13,7 +10,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- note - look here for better styling https://forum.ionicframework.com/t/space-issue-between-ion-items-within-a-grid/59081/5 -->
   <ion-list>
     <button *ngFor="let city of cities;" ion-item detail-none (click)="buttonClick(city.id)"><img src="{{city.imgPath}}">
       <div class="button-heading">{{city.imgCaption}}</div>

@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 /*
   Generated class for the DataProvider provider.
 
@@ -22,8 +23,8 @@ export class DataProvider {
   currentCity: any = {};
   currentStory: number = 0;
 
-  constructor(public http: Http, public storage:Storage, private alertCtrl: AlertController) {
-    this.load().then(data => {
+  constructor(public http: Http, public storage:Storage, private alertCtrl: AlertController, private http2: HTTP) {
+    this.http2.get(this.sitePrefix+'data/data5.json',{},{}).then(data => {
       let alert = this.alertCtrl.create({
         title: JSON.stringify(data),
 

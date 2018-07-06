@@ -4,6 +4,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HTTP } from '@ionic-native/http';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
@@ -39,6 +40,7 @@ import { MyApp } from './app.component';
     SplashScreen,
     //ScreenOrientation,
     Geolocation,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
   ]

@@ -15,8 +15,8 @@ import { Observable } from 'rxjs/Observable';
 export class DataProvider {
 
   data: any;
-  sitePrefix: string = "http://antitourismtour.com/app-data/";
- //sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
+ // sitePrefix: string = "http://antitourismtour.com/app-data/";
+ sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
   //sitePrefix: string = "assets/";
   cities: Array<any> = []
   currentCityID: number = -1;
@@ -44,7 +44,7 @@ export class DataProvider {
   }
 
   load() {
-    let data:Observable<any> = this.http.get(this.sitePrefix+'data/data5.json');
+    let data:Observable<any> = this.http.get(this.sitePrefix+'data/data.json');
     data.subscribe(result => {
       this.data = result;
       this.storage.set('localdata', JSON.stringify(this.data));

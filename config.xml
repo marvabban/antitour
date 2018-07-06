@@ -4,6 +4,7 @@
     <description>#everysordiddetail</description>
     <author email="dlariviere.artist@gmail.com" href="http://ionicframework.com/">David LaRiviere</author>
     <content src="index.html" />
+    <access origin="*://*.firebaseapp.com/*" />
     <access origin="*://antitourismtour.com/*" />
     <access origin="*://*.googleapis.com/*" subdomains="true" />
     <access origin="*://*.gstatic.com/*" subdomains="true" />
@@ -91,7 +92,6 @@
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
     <plugin name="cordova-plugin-geolocation" spec="^3.0.0" />
-    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
     <allow-navigation href="http://172.16.1.72:8100" />
     <engine name="android" spec="^7.1.0" />
     <engine name="ios" spec="4.5.4" />

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { HttpClient } from '@angular/common/http';
+//import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/toPromise';
 import { Storage } from '@ionic/storage';
-import { AlertController } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
+//import { AlertController } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
 /*
   Generated class for the DataProvider provider.
 
@@ -23,8 +23,9 @@ export class DataProvider {
   currentCity: any = {};
   currentStory: number = 0;
 
-  constructor(public http: Http, public storage:Storage, private alertCtrl: AlertController, private http2: HTTP) {
-    this.http2.get(this.sitePrefix+'data/data5.json',{},{}).then(data => {
+  constructor(public http: HttpClient, public storage:Storage) {
+    this.load();
+    /*.then(data => {
       let alert = this.alertCtrl.create({
         title: JSON.stringify(data),
 
@@ -39,12 +40,22 @@ export class DataProvider {
         this.cities.push(tempObj);
        }
       storage.set('cities', JSON.stringify(this.cities));
-    });
+    });*/
   }
 
-  load(): any {
-    return this.http.get(this.sitePrefix+'data/data5.json')
-      .map(res => res.json()).toPromise();
+  load() {
+    let data:Observable<any> = this.http.get(this.sitePrefix+'data/data5.json');
+    data.subscribe(result => {
+      this.data = result;
+      this.storage.set('localdata', JSON.stringify(this.data));
+      for (var i of this.data.location) {
+        let tempObj = {"name":i.name,"id":i.id,"imgForMap":this.sitePrefix+i.imgForMap,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path}
+        this.cities.push(tempObj);
+       }
+      this.storage.set('cities', JSON.stringify(this.cities));
+    })
+    //return this.http.get(this.sitePrefix+'data/data5.json')
+      //.map(res => res.json()).toPromise();
   }
 
   setCurrentStory(id) {

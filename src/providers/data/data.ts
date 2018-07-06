@@ -15,8 +15,8 @@ export class DataProvider {
 
   data: any;
   //sitePrefix: string = "http://antitourismtour.com/app-data/";
-  sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/"
-  //sitePrefix: string = "assets/";
+ // sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/"
+  sitePrefix: string = "assets/";
   cities: Array<any> = []
   currentCityID: number = -1;
   currentCity: any = {};

@@ -14,8 +14,8 @@ import { AlertController } from 'ionic-angular';
 export class DataProvider {
 
   data: any;
-  //sitePrefix: string = "http://antitourismtour.com/app-data/";
- sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
+  sitePrefix: string = "http://antitourismtour.com/app-data/";
+ //sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
   //sitePrefix: string = "assets/";
   cities: Array<any> = []
   currentCityID: number = -1;
@@ -42,7 +42,7 @@ export class DataProvider {
   }
 
   load(): any {
-    return this.http.get(this.sitePrefix+'data/data.json')
+    return this.http.get(this.sitePrefix+'data/data5.json')
       .map(res => res.json()).toPromise();
   }
 

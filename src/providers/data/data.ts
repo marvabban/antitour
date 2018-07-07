@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-//import 'rxjs/add/operator/map';
-//import 'rxjs/add/operator/toPromise';
 import { Storage } from '@ionic/storage';
-//import { AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 /*
   Generated class for the DataProvider provider.
@@ -15,8 +12,8 @@ import { Observable } from 'rxjs/Observable';
 export class DataProvider {
 
   data: any;
- // sitePrefix: string = "http://antitourismtour.com/app-data/";
- sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
+  sitePrefix: string = "http://antitourismtour.com/app-data/";
+ //sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
   //sitePrefix: string = "assets/";
   cities: Array<any> = []
   currentCityID: number = -1;
@@ -25,26 +22,10 @@ export class DataProvider {
 
   constructor(public http: HttpClient, public storage:Storage) {
     this.load();
-    /*.then(data => {
-      let alert = this.alertCtrl.create({
-        title: JSON.stringify(data),
-
-        buttons: ['Dismiss']
-      });
-      alert.present();
-      this.data = data;
-      // keep data in local storage
-      storage.set('localdata', JSON.stringify(this.data));
-      for (var i of this.data.location) {
-        let tempObj = {"name":i.name,"id":i.id,"imgForMap":this.sitePrefix+i.imgForMap,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path}
-        this.cities.push(tempObj);
-       }
-      storage.set('cities', JSON.stringify(this.cities));
-    });*/
   }
 
   load() {
-    let data:Observable<any> = this.http.get(this.sitePrefix+'data/data.json');
+    let data:Observable<any> = this.http.get('https://api.myjson.com/bins/1cvmry'); //this.sitePrefix+'data/data5.json');
     data.subscribe(result => {
       this.data = result;
       this.storage.set('localdata', JSON.stringify(this.data));
@@ -53,9 +34,7 @@ export class DataProvider {
         this.cities.push(tempObj);
        }
       this.storage.set('cities', JSON.stringify(this.cities));
-    })
-    //return this.http.get(this.sitePrefix+'data/data5.json')
-      //.map(res => res.json()).toPromise();
+    });
   }
 
   setCurrentStory(id) {

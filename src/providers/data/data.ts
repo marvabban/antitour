@@ -25,7 +25,7 @@ export class DataProvider {
   }
 
   load() {
-    let data:Observable<any> = this.http.get('https://api.myjson.com/bins/1cvmry'); //this.sitePrefix+'data/data5.json');
+    let data:Observable<any> = this.http.get(this.sitePrefix+'data/data5.json');
     data.subscribe(result => {
       this.data = result;
       this.storage.set('localdata', JSON.stringify(this.data));

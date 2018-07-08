@@ -1,0 +1,233 @@
+{
+  "location": [
+    {
+      "lat": "52.133214",
+      "lon": "-106.670046",
+      "imgForMap": "",
+      "id": "0",
+      "name": "Saskatoon, SK",
+      "img": [
+        {
+          "caption": "Saskatoon",
+          "path": "locations/saskatoon/img/saskatoon.jpg"
+        }
+      ],
+      "destination": [
+        {
+          "dlat": "52.128740",
+          "dlon": "-106.635031",
+          "dtitle": "The College Inn",
+          "daudiopath": "locations/saskatoon/audio/07College-Inn.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/07college_inn.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.1000312",
+          "dlon": "-106.6715933",
+          "dtitle": "Stan's Place",
+          "daudiopath": "locations/saskatoon/audio/03Stans_Place.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/03stans_place.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.133959",
+          "dlon": "-106.649964",
+          "dtitle": "Empty Parking Lot",
+          "daudiopath": "locations/saskatoon/audio/06Parking_lot.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/06Parking_lot.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.1149578",
+          "dlon": "-106.6482455",
+          "dtitle": "Thornton Park",
+          "daudiopath": "locations/saskatoon/audio/04Thornton-Park.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/04Thornton-Park.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.118553",
+          "dlon": "-106.657566",
+          "dtitle": "Back Alley",
+          "daudiopath": "locations/saskatoon/audio/02Alley_01.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/02alley.jpg"
+            }
+          ]
+        },
+        {
+          "dlat": "52.118252",
+          "dlon": "-106.656915",
+          "dtitle": "Yard and Flagon",
+          "daudiopath": "locations/saskatoon/audio/01Yard_01.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/01Yard_01.jpg"
+            }
+          ]
+        },
+
+       
+        {
+          "dlat": "52.139774",
+          "dlon": "-106.645513",
+          "dtitle": "Spadina Crescent",
+          "daudiopath": "locations/saskatoon/audio/10Spadina_Ave.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/10Spadina_Ave.jpg"
+            }
+          ]
+        },
+
+         {
+          "dlat": "52.118172",
+          "dlon": "-106.657579",
+          "dtitle": "Dumpster",
+          "daudiopath": "locations/saskatoon/audio/05Dumpster.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/05Dumpster.jpg"
+            }
+          ]
+        },
+
+        {
+          "dlat": "52.119496",
+          "dlon": "-106.655678",
+          "dtitle": "Playground",
+          "daudiopath": "locations/saskatoon/audio/09Playground.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/09Playground.jpg"
+            }
+          ]
+        },
+  
+       
+
+        {
+          "dlat": "52.1149578",
+          "dlon": "-106.6482455",
+          "dtitle": "Tiffany's",
+          "daudiopath": "locations/saskatoon/audio/08Tiffanys.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/saskatoon/img/08Tiffanys.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lat": "48.4243578",
+      "lon": "-123.3712937",
+      "imgForMap": "",
+      "id": "1",
+      "name": "Victoria, BC",
+      "img": [
+        {
+          "caption": "Victoria",
+          "path": "locations/victoria/img/victoria.jpg"
+        }
+      ],
+      "destination": [
+        {
+          "dlat": "48.431900",
+          "dlon": "-123.394348",
+          "dtitle": "Shoaling Waters",
+          "daudiopath": "locations/victoria/audio/01shoaling_waters.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/victoria/img/01shoaling_waters-app.jpg"
+            }
+          ]
+        },
+{
+          "dlat": "48.428070",
+          "dlon": "-123.369104",
+          "dtitle": "Market Square",
+          "daudiopath": "locations/victoria/audio/04Market_Square.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/victoria/img/04Market_Square-app.jpg"
+            }
+          ]
+        },
+{
+          "dlat": "48.436211",
+          "dlon": "-123.365940",
+          "dtitle": "50/50",
+          "daudiopath": "locations/victoria/audio/05-50_50.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/victoria/img/05-50_50-app.jpg"
+            }
+          ]
+        },
+{
+          "dlat": "48.436915",
+          "dlon": "-123.369514",
+          "dtitle": "John Street",
+          "daudiopath": "locations/victoria/audio/06John_Street.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/victoria/img/06John_Street-app.jpg"
+            }
+          ]
+        },
+{
+          "dlat": "48.427644",
+          "dlon": "-123.359837",
+          "dtitle": "We Bring Medicine to the Street",
+          "daudiopath": "locations/victoria/audio/02we_bring_medicine_to_the_street.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/victoria/img/02we_bring_medicine_to_the_street-app.jpg"
+            }
+          ]
+        },
+{
+          "dlat": "48.433147",
+          "dlon": "-123.328096",
+          "dtitle": "Patient Care Centre",
+          "daudiopath": "locations/victoria/audio/03patient_care_centre.aac",
+          "dimg": [
+            {
+              "dcaption": "A Caption",
+              "dpath": "locations/victoria/img/03patient_care_centre-app.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

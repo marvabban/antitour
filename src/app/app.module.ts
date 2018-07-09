@@ -12,8 +12,9 @@ import { CityPage } from '../pages/city/city';
 import { DataProvider } from '../providers/data/data';
 import { CityPageModule } from './../pages/city/city.module';
 import { MapPageModule } from './../pages/map/map.module';
-import { MyApp } from './app.component';
-
+import { MyApp } from './app.component';  
+import { HTTP } from '@ionic-native/http';
+import { HttpModule } from '@angular/http';
 @NgModule({
   declarations: [
     MyApp
@@ -26,6 +27,7 @@ import { MyApp } from './app.component';
     IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyARb8UGWOZ15KNy9IjxDtO7_8v20JTiJCk'}),
     AgmSnazzyInfoWindowModule,
+    HttpModule,
    // Floor
     IonicModule.forRoot(MyApp)
   ],
@@ -37,6 +39,7 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
+    HTTP,
     //ScreenOrientation,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
+import { HTTP } from '@ionic-native/http';
 /*
   Generated class for the DataProvider provider.
 
@@ -20,21 +21,37 @@ export class DataProvider {
   currentCity: any = {};
   currentStory: number = 0;
 
-  constructor(public http: HttpClient, public storage:Storage) {
+  constructor(public http: HttpClient, public storage:Storage, public httpprovider: HTTP) {
     this.load();
   }
 
   load() {
-    let data:Observable<any> = this.http.get(this.sitePrefix+'data/data5.json');
-    data.subscribe(result => {
-      this.data = result;
-      this.storage.set('localdata', JSON.stringify(this.data));
-      for (var i of this.data.location) {
-        let tempObj = {"name":i.name,"id":i.id,"imgForMap":this.sitePrefix+i.imgForMap,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path}
-        this.cities.push(tempObj);
-       }
-      this.storage.set('cities', JSON.stringify(this.cities));
-    });
+    console.log("this is data enter");
+    this.httpprovider.get(this.sitePrefix+'data/data5.json',{},{}).then(result=>{
+      var data = JSON.parse(result.data)
+      this.data = data;
+        if(this.data.location)
+        {
+          for (var i of this.data.location) {
+            let tempObj = {"name":i.name,"id":i.id,"imgForMap":this.sitePrefix+i.imgForMap,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path}
+            this.cities.push(tempObj);
+          }
+          this.storage.set('cities', JSON.stringify(this.cities));
+        }
+     
+    }).catch(err=>{
+      console.log("this is error", JSON.stringify(err));
+    })
+    // let data:Observable<any> = this.http.get(this.sitePrefix+'data/data5.json');
+    // data.subscribe(result => {
+    //   this.data = result;
+    //   this.storage.set('localdata', JSON.stringify(this.data));
+    //   for (var i of this.data.location) {
+    //     let tempObj = {"name":i.name,"id":i.id,"imgForMap":this.sitePrefix+i.imgForMap,"imgCaption":i.img[0].caption,"imgPath":this.sitePrefix+i.img[0].path}
+    //     this.cities.push(tempObj);
+    //    }
+    //   this.storage.set('cities', JSON.stringify(this.cities));
+    // });
   }
 
   setCurrentStory(id) {

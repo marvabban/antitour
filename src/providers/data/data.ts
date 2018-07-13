@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Storage } from '@ionic/storage';
-import { AlertController } from 'ionic-angular';
+
 /*
   Generated class for the DataProvider provider.
 
@@ -22,7 +22,7 @@ export class DataProvider {
   currentCity: any = {};
   currentStory: number = 0;
 
-  constructor(public http: Http, public storage:Storage, private alertCtrl: AlertController) {
+  constructor(public http: Http, public storage:Storage) {
     this.load().then(data => {
       
       this.data = data;

@@ -23,7 +23,6 @@ export class MapPage {
   constructor(public navCtrl: NavController, public geolocation: Geolocation, public dataProvider:DataProvider) {
     this.dataProvider.storage.get('currentCity').then((val) => {
       this.currentCity = JSON.parse(val);
-      console.log(val);
         this.loadMap();
     });
   }
@@ -33,7 +32,6 @@ export class MapPage {
   }
 
   loadMap(){
-    debugger;
     this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
 
       this.map = {

@@ -1,7 +1,7 @@
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -12,9 +12,8 @@ import { CityPage } from '../pages/city/city';
 import { DataProvider } from '../providers/data/data';
 import { CityPageModule } from './../pages/city/city.module';
 import { MapPageModule } from './../pages/map/map.module';
-import { MyApp } from './app.component';  
-import { HTTP } from '@ionic-native/http';
-import { HttpModule } from '@angular/http';
+import { MyApp } from './app.component';
+
 @NgModule({
   declarations: [
     MyApp
@@ -23,11 +22,10 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     MapPageModule,
     CityPageModule,
-    HttpClientModule,
+    HttpModule,
     IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyARb8UGWOZ15KNy9IjxDtO7_8v20JTiJCk'}),
     AgmSnazzyInfoWindowModule,
-    HttpModule,
    // Floor
     IonicModule.forRoot(MyApp)
   ],
@@ -39,7 +37,6 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    HTTP,
     //ScreenOrientation,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

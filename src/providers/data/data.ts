@@ -14,7 +14,7 @@ import { Storage } from '@ionic/storage';
 export class DataProvider {
 
   data: any;
-  sitePrefix: string = "http://antitourismtour.com/app-data/";
+  sitePrefix: string = "https://antitourismtour.com/app-data/";
  //sitePrefix: string = "https://anti-tourism-1512942066113.firebaseapp.com/";
   //sitePrefix: string = "assets/";
   cities: Array<any> = []

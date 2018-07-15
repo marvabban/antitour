@@ -30,8 +30,8 @@ export class TutorialPage {
     });
     this.dir = platform.dir();
   }
-  slideNext() {
-    this.slides.slideNext();
+  slideNext(num) {
+    this.slides.slideNext(num);
   }
   startApp() {
 
@@ -45,10 +45,13 @@ export class TutorialPage {
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
-    if(this.navParams.get('instructions')) {
+    //let title=this.navParams.get('title');
+    console.log("title="+this.navParams.get('title'));
+    if(this.navParams.get('title')=='Instructions') {
       this.slides.slideNext(1);
     }
-    if(this.navParams.get('credits')) {
+    else if (this.navParams.get('title')=='Credits') {
+      this.slides.slideNext(2);
       this.slides.slideNext(2);
     }
   }
